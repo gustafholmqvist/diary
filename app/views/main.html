@@ -1,0 +1,44 @@
+
+<div ng-controller="MainCtrl" class="container">
+  <br>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="currentDay" is-open="opened" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+    </div>
+  <br>
+  <br>
+
+  <div ng-repeat="note in day.notes" class="well">
+    <div class="row">
+        <div ng-repeat="row in note">
+          <div class="md-6" ng-if="row.type ==='simplescore'">
+            <div class="col-md-6 col-xs-4">{{row.title}}:</div>
+            <div class="col-md-6 col-xs-8">    
+             <rating max="10" ng-model="row.score"></rating>
+            </div>
+          </div>
+          <div ng-if="row.type ==='timestamp'">
+             <div class="col-md-6">{{row.title}}:</div>
+            <div class="col-md-6">    
+              <rating max="10" ng-model="row.time"></rating>
+            </div>
+          </div>
+          <div ng-if="row.type ==='timeinterval'">
+            <div class="col-md-6">{{row.title}}:</div>
+            <div class="col-md-6">    
+             <rating max="10" ng-model="row.timeFrom"></rating>
+             <rating max="10" ng-model="row.timeTo"></rating>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

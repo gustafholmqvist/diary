@@ -1,0 +1,17 @@
+<p>This is the rating-directives view.</p>
+<div ng-controller="RatingDirectivesCtrl as r" class="container">
+	<div ng-repeat="directive in r.directives" class="row">
+		
+	
+		 	<simplescore edit="true" ng-if="directive.type ==='simplescore'" title="directive.title" score="directive.score"></simplescore>
+
+			<text edit="true" ng-if="directive.type ==='text'" title="directive.title" text="directive.text"></text>
+
+		 	<timestamp edit="true" ng-if="directive.type ==='timestamp'" title="directive.title" timestamp="directive.timestamp"></timestamp>
+
+			<timeinterval edit="true" ng-if="directive.type ==='timeinterval'" title="directive.title" timestamp-from="directive.timestampFrom" timestamp-to="directive.timestampTo">
+			</timeinterval>
+		
+	</div>
+</div>
+  
